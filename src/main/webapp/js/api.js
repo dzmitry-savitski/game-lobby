@@ -25,7 +25,7 @@ function connectToChatserver() {
 }
 
 function sendLogin() {
-    if(wsocket.readyState != 1) {
+    if (wsocket.readyState != 1) {
         $('#error-connection').show();
     }
 

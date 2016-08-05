@@ -87,7 +87,7 @@ public class LobbyIntegrityTests {
 
         try (
                 TestClient client1 = new TestClient();
-                TestClient client2 = new TestClient();
+                TestClient client2 = new TestClient()
         ) {
             client1.sendMessage(message);
             assertEquals(login, client1.getLastMessages().get(MessageType.LOGIN));
@@ -111,7 +111,7 @@ public class LobbyIntegrityTests {
     @Test
     public void testLogout() throws Exception {
         try (
-                TestClient client1 = new TestClient("login1");
+                TestClient client1 = new TestClient("login1")
         ) {
             final String beforeLogin = client1.getLastMessages().get(MessageType.USERS);
             TestClient client2 = new TestClient("login2");
