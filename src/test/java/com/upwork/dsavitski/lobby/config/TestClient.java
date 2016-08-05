@@ -11,9 +11,11 @@ import java.net.URI;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CountDownLatch;
+import java.util.logging.Logger;
 
 @ClientEndpoint(encoders = MessageEncoder.class, decoders = MessageDecoder.class)
 public class TestClient implements AutoCloseable {
+    private final Logger logger = Logger.getLogger(getClass().getName());
     private static final String API_URL = "ws://localhost:8080/api";
     private static final int MESSAGE_WAIT_DURATION = 200;
     private static final int MESSAGE_WAIT_STEP = 100;
@@ -51,7 +53,12 @@ public class TestClient implements AutoCloseable {
         lastMessageTimeMillis = System.currentTimeMillis();
         latch.countDown();
         lastMessages.put(message.getType(), message.getMessage());
-        System.err.println(">>>>>>>>>>>>>>>>>>> new mess received: " + message);
+        logger.info("Client received message : " + message);
+    }
+
+    @OnError
+    public void handleError(Throwable unimportant) {
+        // DO NOTHING
     }
 
     @Override
@@ -61,11 +68,6 @@ public class TestClient implements AutoCloseable {
         if (container instanceof LifeCycle) {
             ((LifeCycle) container).stop();
         }
-    }
-
-    @OnError
-    public void handleError(Throwable e) {
-        // DO NOTHING
     }
 
     public void sendMessage(Message message) throws Exception {

@@ -1,4 +1,4 @@
-var server = "ws://localhost:8080/api";
+var server = "ws://localhost:8080/api2";
 var wsocket;
 var $login;
 var $chatMessage;
