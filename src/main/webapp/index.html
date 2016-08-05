@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Games lobby</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="js/api.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!--LOGIN CONTAINER START-->
+<div class="container lobby-login">
+    <div id="error-alert" class="alert alert-danger" hidden>
+        <strong>Login error!</strong> Try different login.
+    </div>
+    <div id="error-connection" class="alert alert-danger" hidden>
+        <strong>Connection error!</strong> Check server settings in "api.js".
+    </div>
+    <form class="form-login" role="form">
+        <label for="login">Login</label>
+        <input id="login" type="text" class="form-control" placeholder="Login">
+        <button id="loginButton" class="btn btn-primary" type="submit">Sign in</button>
+    </form>
+    <a href="/" target="_blank">Open new window</a>
+</div>
+<!--LOGIN CONTAINER END-->
+
+<!--MAIN CONTAINER START-->
+<div class="container lobby-main" hidden>
+    <div class="row">
+
+        <div class="col-sm-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Welcome, <span id="userLogin" class="user-login"></span>
+                    <a href="/">Logout</a><br/>
+                    <a href="/" target="_blank">Open new window</a>
+                </div>
+                <div class="panel-body">
+                    <!--user list table-->
+                    <table class="table table-hover">
+                        <caption>Users:</caption>
+                        <tbody id="usersTable">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Main chat
+                </div>
+                <!--main chat window-->
+                <div id="chat-window" class="panel-body">
+                </div>
+                <form class="form-chat form-inline" role="form">
+                    <input id="chatMessage" type="text" class="form-control" placeholder="message...">
+                    <button id="chatButton" class="btn" type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Game sessions
+                </div>
+                <div class="panel-body">
+                    <form class="form-game" role="form">
+                        <input id="gameName" type="text" class="form-control" placeholder="Game name...">
+                        <button id="createGameButton" class="btn" type="submit">Create</button>
+                    </form>
+                    <!--game list table-->
+                    <table class="table table-hover">
+                        <tbody id="gamesTable">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--MAIN CONTAINER START-->
+</body>
+</html>

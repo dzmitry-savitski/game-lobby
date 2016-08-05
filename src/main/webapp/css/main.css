@@ -1,0 +1,11 @@
+.user-login {
+    font-weight: bold;
+    color: red;
+}
+
+.lobby-login {
+    max-width: 350px;
+    padding: 40px 40px;
+    margin: 10px auto;
+    background-color: #F7F7F7;
+}
