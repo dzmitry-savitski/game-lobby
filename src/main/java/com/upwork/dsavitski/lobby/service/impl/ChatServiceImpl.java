@@ -23,6 +23,11 @@ public class ChatServiceImpl implements ChatService {
         return instance;
     }
 
+    // setter is made only for tests purpose
+    void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
     /**
      * Processes chat message sent by user.
      */

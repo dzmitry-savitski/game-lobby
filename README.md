@@ -11,7 +11,7 @@ This is simple prototype of game lobby site. A “lobby” in games jargon, is a
 ## Used technologies:
  - Java 7, WebSocket API, JSON API - for server side
  - HTML, CSS, JQuery, Bootstrap - for clients
- - JUnit4, Embedded Jetty - for tests
+ - JUnit4, Mockito, Embedded Jetty - for tests
 
 ## Requirements:
 - Apache tomcat 7 for server part of application
@@ -71,7 +71,7 @@ Message{type=CREATE_GAME, message='My game'}
 ```
 Game will be stored on server and all users will receive update game list message.
 
-### Starting game:
+#### Starting game:
 Any user can start game, sending message of type ```START_GAME``` with game name as message. For example:
 ```
 Message{type=CREATE_GAME, message='My game'}

@@ -15,10 +15,10 @@ import java.util.logging.Logger;
 
 @ClientEndpoint(encoders = MessageEncoder.class, decoders = MessageDecoder.class)
 public class TestClient implements AutoCloseable {
-    private final Logger logger = Logger.getLogger(getClass().getName());
     private static final String API_URL = "ws://localhost:8080/api";
     private static final int MESSAGE_WAIT_DURATION = 200;
     private static final int MESSAGE_WAIT_STEP = 100;
+    private final Logger logger = Logger.getLogger(getClass().getName());
     private long lastMessageTimeMillis;
     private CountDownLatch latch = new CountDownLatch(1);
 
